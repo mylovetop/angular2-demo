@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="resources/css/index.css">
+</head>
+<body>
+    <my-app>正在加载。。。</my-app>
+    <!-- ES6-related imports -->
+    <script src="lib/traceur-runtime.js"></script>
+    <script src="lib/es6-module-loader-sans-promises.src.js"></script>
+    <script src="lib/extension-register.js"></script>
+    <script src="lib/reflect.js"></script>
+    <script>
+        register(System);
+    </script>
+
+    <!-- Angular2-related imports -->
+    <script src="lib/zone.js"></script>
+    <script src="lib/long-stack-trace-zone.js"></script>
+    <script src="lib/angular2.js"></script>
+
+    <script>
+        System.import('main/app')
+                .then(function(app){
+                    app.main();
+                }, function(e){
+                    console.log('angular2 running error');
+                });
+    </script>
+</body>
+</html>
